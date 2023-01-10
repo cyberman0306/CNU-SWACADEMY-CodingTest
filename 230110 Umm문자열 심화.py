@@ -1,30 +1,24 @@
-n = int(input())
+def checker(space, answer):
+    if len(space) < 3 or "U" not in space:
+        return answer
+    if len(space) >= 3 and space[0] == "U" and space.count("U") == 1:
+        answer += 1
+        return answer
+    else:
+        space.remove(space[0])
+        checker(space, answer)
+    return answer
 
+n = int(input())
 for i in range(n):
-    S = input()
+    length, count = map(int, input().split())
     space = []
     space2 = []
     space = input()
     space = list(space)
-    start, end = map(int, input().split())
-    flag = False
-
-    for j in space[start-1:end]:
-        space2.append(j)
-
-    #print(space2)
-    if len(space2) >= 3 and space2[0] == "U":
-        for p in space2[1:]:
-            if p != "m":
-                #print(p, "gotit!")
-                flag = False
-                break
-            flag = True
-    if flag is False:
-        print(0)
-    # else:
-    #     if space2.count("U") > 1:
-    #         space2.remove("U")
-    #         for
-
-    #재귀함수로 만들장
+    answer = 0
+    for j in range(count):
+        space2 = []
+        a, b = map(int, input().split())
+        answer = checker(space[a-1:b], answer)
+    print(answer)
