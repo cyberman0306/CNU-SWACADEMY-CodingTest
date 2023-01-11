@@ -20,3 +20,4 @@ for i in range(n):
     space = list(space)
     #print(space)
     print(seller(space, incomeTarget, buyingDate))
+
