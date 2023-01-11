@@ -23,3 +23,5 @@ for i in range(n):
         a, b = map(int, input().split())
         answer = checker(space[a - 1:b], answer)
     print(answer)
+
+
