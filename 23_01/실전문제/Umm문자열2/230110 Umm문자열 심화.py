@@ -1,3 +1,4 @@
+
 def checker(space, answer):
     if len(space) >= 3:
         if space.count("U") == 1:
