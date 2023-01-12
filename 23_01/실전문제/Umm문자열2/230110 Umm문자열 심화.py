@@ -1,34 +1,21 @@
-
-def checker(space, answer):
-    if len(space) >= 3:
-        if space.count("U") == 1:
-            if space[0] == "U":
-                answer += 1
-                return answer
-            else:
-                checker(space[1:], answer)
-    return answer
-
-def checker2(space, answer):
-    if space[0] == "U":
-        if len(space) >= 3:
-            if space.count("U") == 1:
-                answer += 1
-                return answer
-    else:
-        if "U" in space:
-            U = space.index("U")
-            checker2(space[U:], answer)
-    return answer
-
+import sys
+input = sys.stdin.readline
 n = int(input())
+
 for i in range(n):
     length, count = map(int, input().split())
     space = input()
-    space = list(space)
     answer = 0
+    memo = []
     for j in range(count):
-        space2 = []
         a, b = map(int, input().split())
-        answer = checker2(space[a - 1:b], answer)
+        if memo.count((a, b)):
+            answer += 1
+        else:
+            if len(space) >= 3:
+                if space[a-1] == "U":
+                    if b - a >= 2:
+                        if space.count("m", a - 1, b) == b - a:
+                            answer += 1
+                            memo.append((a, b))
     print(answer)
