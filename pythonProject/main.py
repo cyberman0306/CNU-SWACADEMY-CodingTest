@@ -1,15 +1,13 @@
+import sys
+input = sys.stdin.readline
+
 n = int(input())
-space = [[0 for _ in range(101)] for _ in range(101)]
-#print(space)
+space = [0] * 10001
+for i in range(n):
+    a = int(input())
+    space[a] += 1
 
-for _ in range(n):
-    start, end = map(int, input().split())
-
-    for i in range(start, start + 10):
-        for j in range(end, end + 10):
-            space[i][j] = 1
-
-count = 0
-for row in space:
-    count += row.count(1)
-print(count)
+for i in range(10001):
+    if space[i] != 0:
+        for _ in range(space[i]):
+            print(i)
