@@ -1,13 +1,19 @@
-import sys
-input = sys.stdin.readline
-
 n = int(input())
-space = [0] * 10001
+space = []
 for i in range(n):
-    a = int(input())
-    space[a] += 1
+    space.append(int(input()))
 
-for i in range(10001):
-    if space[i] != 0:
-        for _ in range(space[i]):
-            print(i)
+#print(space)
+space.sort()
+count = 0
+space2 = list(set(space))
+
+for i in space:
+    count += i
+
+for i in space2:
+
+print(round(count//n), 1)
+print(space[n//2])
+
+print(max(space) - min(space))
