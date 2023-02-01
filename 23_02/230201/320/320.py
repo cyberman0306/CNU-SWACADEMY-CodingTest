@@ -24,5 +24,6 @@ for i in space:
             ans = (space.index(i)+1)
             gap = a
 
+
 if z != 1:
     print(ans)
