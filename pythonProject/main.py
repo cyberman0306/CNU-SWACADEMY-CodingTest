@@ -1,19 +1,15 @@
+import sys
+from collections import Counter
+input = sys.stdin.readline().strip
+
 n = int(input())
-space = []
-for i in range(n):
-    space.append(int(input()))
 
-#print(space)
-space.sort()
-count = 0
-space2 = list(set(space))
+li = []
+for i in str(n):
+    li.append(int(i))
+# li = list(map(int,str(n))) 으로 변경가능
 
-for i in space:
-    count += i
+li.sort(reverse=True)  # 내림차순
 
-for i in space2:
-
-print(round(count//n), 1)
-print(space[n//2])
-
-print(max(space) - min(space))
+for i in li:
+    print(i, end='')
