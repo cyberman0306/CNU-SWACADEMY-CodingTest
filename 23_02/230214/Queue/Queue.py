@@ -5,11 +5,11 @@ for i in range(n):
     if a[0] == 'push':
         #print(a)
         li.append(a[1])
-    else:
-        if len(li) == 0:
+    else: #pop일때
+        if len(li) == 0: #스택에 없으면
             print(-1)
         else:
-            print(li[-1])
-            li.pop(-1)
+            print(li[0]) # 선입선출
+            li.pop(0) # 마지막 원소를 출력, 제거
             #print(li)
 #print(li)
